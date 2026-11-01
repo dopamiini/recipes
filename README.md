@@ -1,5 +1,5 @@
 # Recipes
-Project for the course TiKaWe. A web application that allows users to publish their food recipes.
+Project for the course TiKaWe. A web application that allows users to publish their food recipes. Uses python v3.12.
 
 ## Basic Functionality
 These are the minimum requirements to be implemented for functionality as listed in the course page.
