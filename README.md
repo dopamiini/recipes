@@ -1,4 +1,4 @@
-# recipes
+# Recipes
 Project for the course TiKaWe. A web application that allows users to publish their food recipes.
 
 ## Basic Functionality
