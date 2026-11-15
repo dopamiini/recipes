@@ -2,11 +2,21 @@
 <html lang="en">
 
 <head>
-  <title>Edit recipe</title>
+  <title>Remove recipe</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body>
-<h1>ADD REMOVE FUCTIONALITY</h1>
+  <h1>Recipes</h1>
+  <hr>
+  <h2>Remove recipe</h2>
+  <p>Recipe: {{ recipe.title }}</p>
+  <p>Are you sure you want to remove this recipe?</p>
+  <form action="/remove_recipe/{{ recipe.id }}" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+    <input type="submit" name="remove" value="Remove">
+    <input type="submit" name="back" value="Cancel">
+  </form>
 </body>
+
 </html>

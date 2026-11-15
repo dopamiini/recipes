@@ -38,6 +38,7 @@ def get_recipe(recipe_id):
     res = db.query(sql, [recipe_id])
     return res[0] if res else None
 
+
 def update_recipe(recipe_id, form):
     """Update an existing recipe."""
     sql = """UPDATE recipes
@@ -54,3 +55,9 @@ def update_recipe(recipe_id, form):
         form["instructions"],
         recipe_id
     ])
+
+
+def remove_recipe(recipe_id):
+    """Handles removing a given recipe from the database."""
+    sql = "DELETE FROM recipes WHERE id = ?"
+    db.execute(sql, [recipe_id])

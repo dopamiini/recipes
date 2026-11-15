@@ -333,3 +333,32 @@ def update_recipe():
     session["message_type"] = "success"
 
     return redirect("/recipe/" + str(recipe_id))
+
+
+@app.route("/remove_recipe/<int:recipe_id>", methods=["GET", "POST"])
+def remove_recipe(recipe_id):
+    """Removes recipe. Validates and verifies user, then displays a delete confirmation page."""
+    require_login()
+
+    recipe = recipes.get_recipe(recipe_id)
+
+    if not recipe:
+        abort(404)
+
+    if recipe["user_id"] != session.get("user_id"):
+        abort(403)
+
+    if request.method == "GET":
+        return render_template(
+            "remove_recipe.html",
+            recipe=recipe,
+        )
+
+    if request.method == "POST":
+        check_csrf()
+
+        if "remove" in request.form:
+            recipes.remove_recipe(recipe_id)
+            return redirect("/")
+
+    return redirect("/recipe/" + str(recipe_id))
