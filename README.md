@@ -1,5 +1,6 @@
 # Recipes
 [![Pylint](https://github.com/dopamiini/recipes/actions/workflows/pylint.yml/badge.svg)](https://github.com/dopamiini/recipes/actions/workflows/pylint.yml)
+[![djLint](https://github.com/dopamiini/recipes/actions/workflows/djlint.yml/badge.svg)](https://github.com/dopamiini/recipes/actions/workflows/djlint.yml)
 
 Project for the course TiKaWe implemented with flask and python 3.12. Recipes is a web application that allows users to publish their food recipes. All users can browse and search all recipes. Only registered users can create recipes and manage them.
 
