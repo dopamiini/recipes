@@ -8,13 +8,43 @@
     color: black;
 }
 
+/* Default color for all links */
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: blue;
+}
+
+/* Navigation bar for each url */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Navigation bar links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 /* Logout button as text link */
-.logout-link {
+.link-button {
     background: none;
     border: none;
     padding: 0;
     color: blue;
-    text-decoration: underline;
     font: inherit;
+    text-decoration: underline;
     cursor: pointer;
+}
+
+/* Search form on index page */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
 }
