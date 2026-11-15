@@ -10,6 +10,7 @@ from flask import (
     session,
 )
 import config
+import recipes
 import users
 
 app = Flask(__name__)
@@ -36,13 +37,71 @@ def get_flash_messages():
     return message, message_type
 
 
+def validate_recipe_fields(title, description, ingredients, instructions):
+    """Validate required recipe fields and their maximum lengths."""
+    fields = [
+        (title, "Recipe title", 50),
+        (description, "Recipe description", 80),
+        (ingredients, "Ingredients", 500),
+        (instructions, "Recipe instructions", 500),
+    ]
+
+    for value, label, max_length in fields:
+        if not value:
+            return f"{label} is required."
+        if len(value) > max_length:
+            return f"{label} must be at most {max_length} characters."
+
+    return None
+
+
+def validate_recipe_form():
+    """Validate form entries for new recipe."""
+    title = request.form.get("title", "").strip()
+    description = request.form.get("description", "").strip()
+    ingredients = request.form.get("ingredients", "").strip()
+    instructions = request.form.get("instructions", "").strip()
+
+    message = validate_recipe_fields(
+        title, description, ingredients, instructions
+    )
+
+    return {
+        "title": title,
+        "description": description,
+        "ingredients": ingredients,
+        "instructions": instructions,
+        "message": message,
+    }
+
+
 @app.route("/")
 def index():
     """Display the main page."""
     message, message_type = get_flash_messages()
 
+    all_recipes = recipes.get_recipes()
+
     return render_template(
         "index.html",
+        message=message,
+        message_type=message_type,
+        recipes=all_recipes,
+    )
+
+@app.route("/recipe/<int:recipe_id>")
+def show_recipe(recipe_id):
+    """Processes information needed to display a single recipe page."""
+    recipe = recipes.get_recipe(recipe_id)
+
+    if not recipe:
+        abort(404)
+
+    message, message_type = get_flash_messages()
+
+    return render_template(
+        "show_recipe.html",
+        recipe=recipe,
         message=message,
         message_type=message_type,
     )
@@ -159,4 +218,55 @@ def create():
 
     session["message"] = "Account has been created successfully!"
     session["message_type"] = "success"
+    return redirect("/")
+
+
+@app.route("/new_recipe")
+def new_recipe():
+    """Displays form for creating a new recipe."""
+    require_login()
+
+    message, message_type = get_flash_messages()
+
+    return render_template(
+        "new_recipe.html",
+        message=message,
+        message_type=message_type,
+        title="",
+        description="",
+        ingredients="",
+        instructions="",
+    )
+
+
+@app.route("/create_recipe", methods=["POST"])
+def create_recipe():
+    """Handles submitting and creating a new recipe with new_recipe()."""
+    require_login()
+    check_csrf()
+
+    form = validate_recipe_form()
+
+    if form["message"]:
+        return render_template(
+            "new_recipe.html",
+            message=form["message"],
+            message_type="error",
+            title=form["title"],
+            description=form["description"],
+            ingredients=form["ingredients"],
+            instructions=form["instructions"],
+        )
+
+    user_id = session["user_id"]
+
+    recipes.add_recipe(
+        user_id,
+        form,
+    )
+
+    session.pop("recipe_form", None)
+    session["message"] = "Recipe created successfully!"
+    session["message_type"] = "success"
+
     return redirect("/")

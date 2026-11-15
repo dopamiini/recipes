@@ -10,8 +10,8 @@
   <h1>Recipes</h1>
   <div>
       {% if session.username %}
-        Logged in as
-        {{ session.username }} |
+        Logged in as {{ session.username }} |
+        <a href="/new_recipe">Add recipe</a> |
           <form action="/logout" method="POST" style="display: inline;">
             <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
             <button type="submit" class="logout-link">Logout</button>
@@ -24,6 +24,18 @@
   <hr>
   {% if message %}
     <p id="message" class="{{ message_type }}">{{ message }}</p>
+  {% endif %}
+  <h2>Recipes</h2>
+  {% if recipes %}
+    <ul>
+    {% for recipe in recipes %}
+      <li>
+        <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No recipes found.</p>
   {% endif %}
 </body>
 
