@@ -10,7 +10,7 @@ You need Python version 3.12 and Flask version 3.1.x or later.
 ### 1. Clone the repository and navigate to the project directory
 
 ```bash
-git clone https://github.com/dopamiini/food-recipes
+git clone https://github.com/dopamiini/recipes
 cd food-recipes
 ```
 
