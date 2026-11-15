@@ -50,7 +50,7 @@ Windows users use `python` instead of `python3`. You can always reset the databa
 flask run
 ```
 
-The application will be available at [http://127.0.0.1:5000](http://127.0.0.1:5000).
+The application will be available at `http://127.0.0.1:5000`.
 
 ## Basic Functionality
 These are the minimum requirements to be implemented for functionality as listed in the course page.
