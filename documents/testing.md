@@ -14,7 +14,6 @@ The application can be tested manually by following the checklist below. These t
 - Open the login page by clicking **Sign in**.
 - Try logging in with the registered username and password, this should succeed.
 - Try logging in with any combination of invalid or missing information and verify that appropriate validation errors are displayed. For example, a username that doesn't exist.
-- Also, later logout and verify that you are unable to access user specific functionality that was available to you while you were logged in with a registered account once you create recipes, etc.
 
 ### 3. Testing recipe creation
 
