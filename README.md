@@ -5,7 +5,7 @@ Project for the course TiKaWe implemented with flask and python 3.12. Recipes is
 
 ## Running the Application
 
-You need Python version 3.10 and Flask version 3.1.x or later.
+You need Python version 3.12 and Flask version 3.1.x or later.
 
 ### 1. Clone the repository and navigate to the project directory
 
