@@ -6,10 +6,12 @@ on:
 
 jobs:
   lint:
+    name: Check HTML templates
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,4 +22,4 @@ jobs:
         run: pip install djlint
 
       - name: Validate Jinja2 templates
-        run: djlint templates/ --lint
+        run: djlint templates/ --lint --profile=jinja
