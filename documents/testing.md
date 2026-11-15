@@ -1,6 +1,6 @@
 ## Testing the Application
 
-The application can be tested manually by following the checklist below. These tests cover the main functionalities of the application, including user registration, authentication, recipe management, ratings, comments, image uploads, search, and navigation. This is mostly fairly intuitive. Here's a coverage of successful test cases.
+The application can be tested manually by following the checklist below. These tests cover the current functionalities of the application, these include user registration, authentication, recipe management, search, and navigation. This is mostly fairly intuitive. Here's a coverage of successful test cases.
 
 ### 1. Testing user registration
 
