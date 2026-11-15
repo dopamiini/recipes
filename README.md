@@ -1,5 +1,6 @@
 # Recipes
 [![Pylint](https://github.com/dopamiini/recipes/actions/workflows/pylint.yml/badge.svg)](https://github.com/dopamiini/recipes/actions/workflows/pylint.yml)
+
 Project for the course TiKaWe. A web application that allows users to publish their food recipes. Uses python v3.12.
 
 ## Basic Functionality
