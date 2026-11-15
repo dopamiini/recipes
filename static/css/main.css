@@ -1,0 +1,20 @@
+/* Error message style */
+.error {
+    color: red;
+}
+
+/* Success message style */
+.success {
+    color: black;
+}
+
+/* Logout button as text link */
+.logout-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: blue;
+    text-decoration: underline;
+    font: inherit;
+    cursor: pointer;
+}
