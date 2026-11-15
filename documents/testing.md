@@ -20,7 +20,7 @@ The application can be tested manually by following the checklist below. These t
 *You must be logged in to create recipes.*
 
 - Open the recipe creation page by clicking **Add recipe**.
-- Enter the recipe title, description, ingredients, instructions, and categories. Click Add recipe. You should be redirected to the main page and your recipe is now added.
+- Enter the recipe title, description, ingredients, and instructions. Click **Add recipe**. You should be redirected to the main page and your recipe is now added.
 - Try submitting missing, invalid or excessively long inputs and verify that server-side validation works as expected.
 
 ### 4. Testing recipe viewing and navigation
@@ -33,7 +33,7 @@ The application can be tested manually by following the checklist below. These t
 
 *You must be logged in and own the recipe to edit or delete it.*
 
-- Open one of your own recipes and click **Edit**.
+- Open one of your own recipes and click **Edit recipe**.
 - Verify that the existing recipe information is displayed in the form.
 - Change some information and save the changes. Verify that the updated information is displayed correctly.
 - Try submitting a recipe that has some fields empty and note that server-side validation is enforced.
