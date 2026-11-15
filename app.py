@@ -270,3 +270,66 @@ def create_recipe():
     session["message_type"] = "success"
 
     return redirect("/")
+
+
+@app.route("/edit_recipe/<int:recipe_id>")
+def edit_recipe(recipe_id):
+    """Lets user edit a recipe. It checks the user is logged in and the owner."""
+    require_login()
+
+    recipe = recipes.get_recipe(recipe_id)
+
+    if not recipe:
+        abort(404)
+
+    if recipe["user_id"] != session.get("user_id"):
+        abort(403)
+
+    return render_template(
+        "edit_recipe.html",
+        recipe=recipe,
+    )
+
+
+@app.route("/update_recipe", methods=["POST"])
+def update_recipe():
+    """Updates recipe on form submission. Checks user logged in and verifies the submission.""" 
+    require_login()
+    check_csrf()
+
+    recipe_id = request.form.get("recipe_id", type=int)
+
+    if recipe_id is None:
+        abort(400)
+
+    recipe = recipes.get_recipe(recipe_id)
+
+    if not recipe:
+        abort(404)
+
+    if recipe["user_id"] != session.get("user_id"):
+        abort(403)
+
+    form = validate_recipe_form()
+
+    if form["message"]:
+        recipe_data = dict(recipe)
+
+        recipe_data["title"] = form["title"]
+        recipe_data["description"] = form["description"]
+        recipe_data["ingredients"] = form["ingredients"]
+        recipe_data["instructions"] = form["instructions"]
+
+        return render_template(
+            "edit_recipe.html",
+            recipe=recipe_data,
+            message=form["message"],
+            message_type="error",
+        )
+
+    recipes.update_recipe(recipe_id, form)
+
+    session["message"] = "Recipe updated successfully!"
+    session["message_type"] = "success"
+
+    return redirect("/recipe/" + str(recipe_id))

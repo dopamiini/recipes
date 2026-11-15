@@ -37,3 +37,20 @@ def get_recipe(recipe_id):
                    recipes.id = ?"""
     res = db.query(sql, [recipe_id])
     return res[0] if res else None
+
+def update_recipe(recipe_id, form):
+    """Update an existing recipe."""
+    sql = """UPDATE recipes
+             SET title = ?,
+                 description = ?,
+                 ingredients = ?,
+                 instructions = ?
+             WHERE id = ?"""
+
+    db.execute(sql, [
+        form["title"],
+        form["description"],
+        form["ingredients"],
+        form["instructions"],
+        recipe_id
+    ])
