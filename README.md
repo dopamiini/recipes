@@ -56,7 +56,8 @@ The application will be available at `http://127.0.0.1:5000`.
 These are the minimum requirements to be implemented for functionality as listed in the course page.
 
 - All users can view all recipes added to the application. ✔️
-- All users can search for recipes using keywords and optionally filter recipes by category. ✔️
+- All users can search for recipes using keywords. ✔️
+- All users can filter recipes by category.
 - Users can register an account and then login using that account. ✔️
 - In the application, registered users can share their food recipes. ✔️
   - A registered user can add, edit and remove their own recipes. All recipe text fields are mandatory. ✔️
