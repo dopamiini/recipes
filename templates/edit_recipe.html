@@ -8,13 +8,13 @@
 
 <body>
   <h1>Recipes</h1>
-  <p><a href="/recipe/{{ recipe.id }}">Back</a></p>
+  <p><a href="{{ url_for('show_recipe', recipe_id=recipe.id) }}">Back</a></p>
   <hr>
   {% if message %}
     <p id="message" class="{{ message_type }}">{{ message }}</p>
   {% endif %}
   <h2>Edit recipe</h2>
-  <form action="/update_recipe" method="post">
+  <form action="{{ url_for('update_recipe') }}" method="post">
     <p>
       Name: <br/>
       <input type="text" name="title" maxlength="50" size="50" value="{{ recipe.title }}">
@@ -31,7 +31,7 @@
       Instructions: <br>
       <textarea name="instructions" rows="8" cols="80" maxlength="1000">{{ recipe.instructions }}</textarea>
     </p>
-    <input type="hidden" name="recipe_id" value="{{recipe.id}}">
+    <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     <input type="submit" value="Update">
   </form>

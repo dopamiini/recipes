@@ -14,7 +14,7 @@
     <p id="message" class="{{ message_type }}">{{ message }}</p>
   {% endif %}
 
-  <form action="/create" method="post">
+  <form action="{{ url_for('create') }}" method="post">
     <p>
       Username: <br>
       <input type="text" name="username" value="{{ username }}">

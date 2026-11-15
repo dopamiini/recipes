@@ -12,18 +12,18 @@
     <div class="navbar-links">
       {% if session.username %}
         <span>Logged in as {{ session.username }}</span> |
-        <a href="/new_recipe">Add recipe</a> |
-          <form action="/logout" method="post">
+        <a href="{{ url_for('new_recipe') }}">Add recipe</a> |
+          <form action="{{ url_for('logout') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
             <button type="submit" class="link-button">Logout</button>
           </form>
       {% else %}
-        <a href="/login">Sign in</a> |
-        <a href="/register">Register</a>
+        <a href="{{ url_for('login') }}">Sign in</a> |
+        <a href="{{ url_for('register') }}">Register</a>
       {% endif %}
       |
     </div>
-    <form action="/find_recipe" method="get" class="search-form">
+    <form action="{{ url_for('find_recipe') }}" method="get" class="search-form">
       <input type="text" name="search">
       <input type="submit" value="Search">
     </form>
@@ -37,7 +37,7 @@
     <ul>
     {% for recipe in recipes %}
       <li>
-        <a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a>
+        <a href="{{ url_for('show_recipe', recipe_id=recipe.id) }}">{{ recipe.title }}</a>
       </li>
     {% endfor %}
     </ul>

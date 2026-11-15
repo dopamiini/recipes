@@ -14,7 +14,7 @@
     <p id="message" class="{{ message_type }}">{{ message }}</p>
   {% endif %}
   <h2>New recipe</h2>
-  <form action="/create_recipe" method="post">
+  <form action="{{ url_for('create_recipe') }}" method="post">
     <p>
       Name: <br>
       <input type="text" name="title" maxlength="50" size="50" value="{{ title }}">

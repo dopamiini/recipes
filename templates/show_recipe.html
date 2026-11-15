@@ -11,8 +11,8 @@
   <p>
     <a href="/">Back</a>
     {% if session.user_id == recipe.user_id %}
-      <a href="/edit_recipe/{{ recipe.id }}">| Edit recipe</a> |
-      <a href="/remove_recipe/{{ recipe.id }}">Remove recipe</a>
+      <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">| Edit recipe</a> |
+      <a href="{{ url_for('remove_recipe', recipe_id=recipe.id) }}">Remove recipe</a>
     {% endif %}
   </p>
   <hr>

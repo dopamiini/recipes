@@ -11,7 +11,7 @@
   {% if session.username %}
   <div>
     (Logged in as {{ session.username }}) |
-    <a href="/logout">Logout</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
   </div>
   {% else %}
   <p><a href="/">Back</a></p>
@@ -19,7 +19,7 @@
   {% if message %}
     <p id="message" class="{{ message_type }}">{{ message }}</p>
   {% endif %}
-  <form action="/login" method="post">
+  <form action="{{ url_for('login') }}" method="post">
     <p>
       Username: <br>
       <input type="text" name="username" value="{{ username }}">

@@ -12,7 +12,7 @@
   <h2>Remove recipe</h2>
   <p>Recipe: {{ recipe.title }}</p>
   <p>Are you sure you want to remove this recipe?</p>
-  <form action="/remove_recipe/{{ recipe.id }}" method="post">
+  <form action="{{ url_for('remove_recipe', recipe_id=recipe.id) }}" method="post">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     <input type="submit" name="remove" value="Remove">
     <input type="submit" name="back" value="Cancel">
