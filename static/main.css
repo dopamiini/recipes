@@ -1,0 +1,9 @@
+/* Error message style */
+.error {
+    color: red;
+}
+
+/* Success message style */
+.success {
+    color: black;
+}
