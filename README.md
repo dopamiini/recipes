@@ -11,7 +11,7 @@ You need Python version 3.12 and Flask version 3.1.x or later.
 
 ```bash
 git clone https://github.com/dopamiini/recipes
-cd food-recipes
+cd recipes
 ```
 
 ### 2. Create a virtual environment and install Flask
