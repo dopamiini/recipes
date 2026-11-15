@@ -12,13 +12,21 @@
       {% if session.username %}
         Logged in as {{ session.username }} |
         <a href="/new_recipe">Add recipe</a> |
-          <form action="/logout" method="POST" style="display: inline;">
+          <form action="/logout" method="post" style="display: inline;">
             <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
             <button type="submit" class="logout-link">Logout</button>
+          </form> |
+          <form action="/find_recipe" method="get" style="display: inline;">
+            <input type="text" name="search">
+            <input type="submit" value="Search">
           </form>
       {% else %}
         <a href="/login">Sign in</a> |
-        <a href="/register">Register</a>
+        <a href="/register">Register</a> |
+        <form action="/search" method="get" style="display: inline;">
+          <input type="text" name="search">
+          <input type="submit" value="Search">
+        </form>
       {% endif %}
   </div>
   <hr>

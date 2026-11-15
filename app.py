@@ -89,6 +89,27 @@ def index():
         recipes=all_recipes,
     )
 
+
+@app.route("/find_recipe")
+def find_recipe():
+    """Search form for recipes by search term."""
+    search = request.args.get("search", "")
+
+    if len(search) > 50:
+        abort(400)
+
+    if search:
+        all_recipes = recipes.find_recipes(search)
+    else:
+        all_recipes = recipes.get_recipes()
+
+    return render_template(
+        "index.html",
+        recipes=all_recipes,
+        search=search
+    )
+
+
 @app.route("/recipe/<int:recipe_id>")
 def show_recipe(recipe_id):
     """Processes information needed to display a single recipe page."""
