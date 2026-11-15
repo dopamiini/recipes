@@ -59,7 +59,7 @@ These are the minimum requirements to be implemented for functionality as listed
 - All users can search for recipes using keywords. ✔️
 - All users can filter recipes by category.
 - Users can register an account and then login using that account. ✔️
-- In the application, registered users can share their food recipes. ✔️
+- In the application, registered users can share their food recipes.
   - A registered user can add, edit and remove their own recipes. All recipe text fields are mandatory. ✔️
   - Each recipe includes a list of required ingredients and preparation instructions. ✔️
   - Registered users can optionally also add a picture to a recipe (png file format).
@@ -80,6 +80,14 @@ The primary entity is a **recipe**, and the secondary entities are **comments** 
 These are additional features that will be added.
 
 - Pagination
+
+## Testing
+
+Testing documentation and test cases can be found in the file [testing.md](documents/testing.md).
+
+## Pylint
+
+Pylint report is in the file [pylint-report.md](documents/pylint-report.md)
 
 ## Comments
 These may see updates during the course of the project.
