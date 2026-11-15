@@ -87,7 +87,7 @@ Testing documentation and test cases can be found in the file [testing.md](docum
 
 ## Pylint
 
-Pylint report is in the file [pylint-report.md](documents/pylint-report.md)
+Pylint report will be added later. You can currently verify the pylint status of the code via the banner at the top of this page.
 
 ## Comments
 These may see updates during the course of the project.
