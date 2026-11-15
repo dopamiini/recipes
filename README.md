@@ -3,6 +3,55 @@
 
 Project for the course TiKaWe implemented with flask and python 3.12. Recipes is a web application that allows users to publish their food recipes. All users can browse and search all recipes. Only registered users can create recipes and manage them.
 
+## Running the Application
+
+You need Python version 3.10 and Flask version 3.1.x or later.
+
+### 1. Clone the repository and navigate to the project directory
+
+```bash
+git clone https://github.com/dopamiini/food-recipes
+cd food-recipes
+```
+
+### 2. Create a virtual environment and install Flask
+
+**Linux and macOS:**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+**Windows (PowerShell):**
+
+```powershell
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Initialize the database
+
+This command creates the database using the `schema.sql` and `init.sql` files.
+
+**Linux and macOS:**
+
+```bash
+python3 seed.py
+```
+
+Windows users use `python` instead of `python3`. You can always reset the database by rerunning the command.
+
+### 4. Start the application
+
+```bash
+flask run
+```
+
+The application will be available at [http://127.0.0.1:5000](http://127.0.0.1:5000).
+
 ## Basic Functionality
 These are the minimum requirements to be implemented for functionality as listed in the course page.
 
