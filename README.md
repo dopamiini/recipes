@@ -90,4 +90,4 @@ Testing documentation and test cases can be found in the file [testing.md](docum
 Pylint report will be added later. You can currently verify the pylint status of the code via the banner at the top of this page.
 
 ## Comments
-These may see updates during the course of the project.
+The project currently covers Parts 1–11 of the video lectures. All requirements for the second interim submission should be implemented.
