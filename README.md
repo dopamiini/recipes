@@ -96,4 +96,5 @@ The project currently covers Parts 1–11 of the video lectures. All requirement
   - Peer evalutation. 
   - Refactor code to use flash() for messages.
   - Refactor html by adding a base.html template and use jinja template inheritance.
+  - Decide on the html page styling and overall visual layout.
   - Look into and possibly expand CI checks with (pytest, coverage, bandit, pip-audit, html-validate, nu html checker).
