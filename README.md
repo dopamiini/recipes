@@ -92,3 +92,6 @@ Pylint report will be added later. You can currently verify the pylint status of
 
 ## Comments
 The project currently covers Parts 1–11 of the video lectures. All requirements for the second interim submission should be implemented.
+- TODO:
+  - Refactor code to use flash() for messages.
+  - Refactored html by adding base.html template using jinja template inheritance.
