@@ -95,4 +95,4 @@ The project currently covers Parts 1–11 of the video lectures. All requirement
 - TODO for next interim submission:
   - Peer evalutation. 
   - Refactor code to use flash() for messages.
-  - Refactored html by adding base.html template using jinja template inheritance.
+  - Refactor html by adding a base.html template and use jinja template inheritance.
